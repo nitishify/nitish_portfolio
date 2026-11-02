@@ -1,0 +1,52 @@
+.legend { display: flex; flex-wrap: wrap; gap: 24px; margin: -18px 0 30px; font-size: 13.5px; color: var(--muted); }
+.legend > span { display: inline-flex; align-items: center; gap: 10px; }
+.lv-bars { display: inline-flex; align-items: flex-end; gap: 2px; height: 14px; flex: none; }
+.lv-bars i { width: 4px; border-radius: 2px; background: var(--border-2); }
+.lv-bars i:nth-child(1) { height: 6px; }
+.lv-bars i:nth-child(2) { height: 10px; }
+.lv-bars i:nth-child(3) { height: 14px; }
+.lv-bars i.on { background: var(--grad); box-shadow: 0 0 6px rgba(34, 211, 238, 0.6); }
+
+.skills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.skill-card { padding: 26px; border-radius: 26px; transition: border-color 0.3s, box-shadow 0.3s; }
+.skill-card:hover { border-color: rgba(59, 130, 246, 0.4); box-shadow: 0 24px 50px -30px rgba(59, 130, 246, 0.7); }
+.sk-head { display: flex; align-items: center; gap: 14px; }
+.sk-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 15px;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  background: linear-gradient(145deg, #2563eb, #0891b2);
+  box-shadow: 0 10px 24px -10px rgba(59, 130, 246, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+.sk-head h3 { font-family: var(--head); font-size: 19px; font-weight: 700; }
+.sk-head small { font-size: 12.5px; color: var(--dim); font-weight: 500; }
+
+.sk-list { display: grid; gap: 8px; margin-top: 20px; }
+.sk-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 9px 12px;
+  border-radius: 14px;
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+.sk-item:hover { border-color: color-mix(in srgb, var(--c) 60%, transparent); box-shadow: 0 0 22px -8px var(--c); }
+.sk-logo {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  flex: none;
+  background: color-mix(in srgb, var(--c) 14%, transparent);
+  border: 1px solid color-mix(in srgb, var(--c) 30%, transparent);
+}
+.sk-name { flex: 1; font-size: 14.5px; font-weight: 500; }
+
+@media (max-width: 1000px) { .skills { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 640px) { .skills { grid-template-columns: 1fr; } .skill-card { padding: 22px 18px; } }
