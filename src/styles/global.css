@@ -85,7 +85,7 @@ img, svg { display: block; max-width: 100%; }
 
 /* ============ Layout helpers ============ */
 .container { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
-/* Stacking context so section side graphics (z-index: -1) stay behind content but above the page background */
+/* Stacking context for the main page content */
 .main { position: relative; isolation: isolate; }
 /* clip (not hidden) so glows and slide-in animations never widen the page, without creating a scroll box */
 .section { padding: 120px 0 0; position: relative; overflow-x: clip; }

@@ -5,7 +5,6 @@ import { useState, type FormEvent } from 'react';
 import { profile } from '../../data/profile';
 import { Lottie } from '../ui/Lottie';
 import { Reveal } from '../ui/Reveal';
-import { SideArt } from '../ui/SideArt';
 import { SectionHeading } from '../ui/SectionHeading';
 import './Contact.css';
 
@@ -82,7 +81,6 @@ export function Contact() {
 
   return (
     <section className="section" id="contact">
-      <SideArt left="radar" right="plane" />
       <div className="container">
         <div className="contact glass">
           <div className="contact-bg" aria-hidden>

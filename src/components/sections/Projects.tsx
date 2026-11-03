@@ -2,7 +2,6 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { ArrowUpRight, BotMessageSquare, BriefcaseBusiness, CandlestickChart, GraduationCap, Plane, Sparkle } from 'lucide-react';
 import { useState } from 'react';
 import { projectFilters, projects, type Project } from '../../data/projects';
-import { SideArt } from '../ui/SideArt';
 import { SectionHeading } from '../ui/SectionHeading';
 import { Reveal } from '../ui/Reveal';
 import { TechIcon } from '../ui/TechIcon';
@@ -88,7 +87,6 @@ export function Projects() {
 
   return (
     <section className="section" id="work">
-      <SideArt left="cube" right="terminal" />
       <div className="container">
         <SectionHeading
           icon={BriefcaseBusiness}

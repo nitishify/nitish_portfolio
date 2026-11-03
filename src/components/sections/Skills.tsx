@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import { Cloud, Database, LayoutTemplate, Server, ShieldCheck, Wrench, Cpu } from 'lucide-react';
 import { skillGroups, type Level } from '../../data/tech';
-import { SideArt } from '../ui/SideArt';
 import { SectionHeading } from '../ui/SectionHeading';
 import { Reveal } from '../ui/Reveal';
 import { TechIcon, techColor } from '../ui/TechIcon';
@@ -18,7 +17,6 @@ const barsFor = (l: Level) => LEVELS.find(x => x.id === l)!.bars;
 export function Skills() {
   return (
     <section className="section" id="skills">
-      <SideArt left="bars" right="hex" />
       <div className="container">
         <SectionHeading
           icon={Cpu}

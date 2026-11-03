@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { aboutStats, profile } from '../../data/profile';
 import { CountUp } from '../ui/CountUp';
 import { Reveal } from '../ui/Reveal';
-import { SideArt } from '../ui/SideArt';
 import { SectionHeading } from '../ui/SectionHeading';
 import { TechIcon } from '../ui/TechIcon';
 import './About.css';
@@ -60,7 +59,6 @@ function PhotoCard() {
 export function About() {
   return (
     <section className="section" id="about">
-      <SideArt left="orbit" right="pulse" />
       <div className="container">
         <SectionHeading icon={UserRound} eyebrow="About me" title="Turning Ideas Into" highlight="Scalable Products" lottie="space-dev" />
 

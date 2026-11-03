@@ -1,7 +1,6 @@
 import { motion, useScroll, useSpring } from 'framer-motion';
 import { Activity, Code2, DraftingCompass, SearchCode, Workflow, type LucideIcon } from 'lucide-react';
 import { useRef } from 'react';
-import { SideArt } from '../ui/SideArt';
 import { SectionHeading } from '../ui/SectionHeading';
 import './Process.css';
 
@@ -39,7 +38,6 @@ export function Process() {
 
   return (
     <section className="section" id="process">
-      <SideArt left="circuit" right="pipeline" />
       <div className="container">
         <SectionHeading
           icon={Workflow}

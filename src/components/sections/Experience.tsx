@@ -2,7 +2,6 @@ import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
 import { CalendarDays, ChevronRight, History, MapPin, Route, Timer } from 'lucide-react';
 import { useRef } from 'react';
 import { experience, type Job } from '../../data/experience';
-import { SideArt } from '../ui/SideArt';
 import { SectionHeading } from '../ui/SectionHeading';
 import { TechIcon, techColor } from '../ui/TechIcon';
 import './Experience.css';
@@ -58,7 +57,6 @@ export function Experience() {
 
   return (
     <section className="section" id="experience">
-      <SideArt left="growth" right="clock" />
       <div className="container">
         <SectionHeading
           icon={Route}
