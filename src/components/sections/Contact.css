@@ -9,7 +9,7 @@
   display: grid;
   place-items: center;
   color: #fff;
-  background: linear-gradient(145deg, #7c3aed, #2563eb);
+  background: linear-gradient(145deg, #7c3aed, var(--blue-deep));
   box-shadow: 0 16px 36px -12px rgba(124, 58, 237, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.35);
 }
 .edu-main h3 { font-family: var(--head); font-size: 24px; font-weight: 700; margin-top: 4px; }
@@ -24,8 +24,8 @@
 .contact { position: relative; overflow: hidden; padding: 64px; border-radius: 34px; }
 .contact-bg { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
 .contact-bg span { position: absolute; border-radius: 50%; filter: blur(80px); }
-.cb1 { width: 420px; height: 420px; left: -120px; top: -140px; background: rgba(59, 130, 246, 0.3); animation: drift1 16s ease-in-out infinite; }
-.cb2 { width: 380px; height: 380px; right: -120px; bottom: -160px; background: rgba(34, 211, 238, 0.2); animation: drift2 18s ease-in-out infinite; }
+.cb1 { width: 420px; height: 420px; left: -120px; top: -140px; background: rgba(var(--a1-rgb), 0.3); animation: drift1 16s ease-in-out infinite; }
+.cb2 { width: 380px; height: 380px; right: -120px; bottom: -160px; background: rgba(var(--a2-rgb), 0.2); animation: drift2 18s ease-in-out infinite; }
 .contact .sec-head { margin-bottom: 40px; }
 .contact-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 40px; }
 
@@ -40,8 +40,8 @@
   border: 1px solid var(--border);
   transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
 }
-.c-link:hover { border-color: var(--blue); transform: translateX(6px); box-shadow: 0 12px 30px -18px rgba(59, 130, 246, 0.8); }
-.c-ico { width: 46px; height: 46px; border-radius: 14px; flex: none; display: grid; place-items: center; color: #fff; background: var(--grad); box-shadow: 0 8px 20px -8px rgba(59, 130, 246, 0.8); }
+.c-link:hover { border-color: var(--blue); transform: translateX(6px); box-shadow: 0 12px 30px -18px rgba(var(--a1-rgb), 0.8); }
+.c-ico { width: 46px; height: 46px; border-radius: 14px; flex: none; display: grid; place-items: center; color: #fff; background: var(--grad); box-shadow: 0 8px 20px -8px rgba(var(--a1-rgb), 0.8); }
 .c-txt { min-width: 0; }
 .c-txt small { display: block; font-size: 11.5px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--dim); }
 .c-txt b { display: block; font-size: 15px; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
@@ -76,7 +76,7 @@
   resize: vertical;
   transition: border-color 0.25s, box-shadow 0.25s;
 }
-.field input:focus, .field textarea:focus { border-color: var(--blue); box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.16); }
+.field input:focus, .field textarea:focus { border-color: var(--blue); box-shadow: 0 0 0 4px rgba(var(--a1-rgb), 0.16); }
 .c-form .btn:disabled { opacity: 0.75; cursor: progress; }
 .c-form .spin { animation: spin 0.9s linear infinite; }
 .botcheck { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }

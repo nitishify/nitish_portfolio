@@ -15,7 +15,7 @@
   inset: 0;
   border-radius: inherit;
   background: linear-gradient(90deg, var(--blue), var(--cyan), var(--violet));
-  box-shadow: 0 0 14px rgba(34, 211, 238, 0.7);
+  box-shadow: 0 0 14px rgba(var(--a2-rgb), 0.7);
   transform-origin: left;
   transform: scaleX(var(--p, 0));
 }
@@ -30,8 +30,8 @@
   display: grid;
   place-items: center;
   color: #fff;
-  background: linear-gradient(145deg, #2563eb, #0891b2 60%, #7c3aed);
-  box-shadow: 0 16px 36px -14px rgba(59, 130, 246, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  background: linear-gradient(145deg, var(--blue-deep), var(--cyan-deep) 60%, #7c3aed);
+  box-shadow: 0 16px 36px -14px rgba(var(--a1-rgb), 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.35);
   transition: transform 0.35s cubic-bezier(0.3, 1.5, 0.5, 1);
 }
 .proc-step:hover .proc-node { transform: translateY(-4px) rotate(-6deg); }
@@ -39,7 +39,7 @@
   position: absolute;
   inset: -7px;
   border-radius: 27px;
-  border: 1.5px dashed rgba(34, 211, 238, 0.45);
+  border: 1.5px dashed rgba(var(--a2-rgb), 0.45);
   animation: spin 16s linear infinite;
 }
 
@@ -53,7 +53,7 @@
   overflow: hidden;
   transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
 }
-.proc-step:hover .proc-card { border-color: rgba(59, 130, 246, 0.45); transform: translateY(-4px); box-shadow: 0 24px 46px -28px rgba(59, 130, 246, 0.75); }
+.proc-step:hover .proc-card { border-color: rgba(var(--a1-rgb), 0.45); transform: translateY(-4px); box-shadow: 0 24px 46px -28px rgba(var(--a1-rgb), 0.75); }
 .proc-num {
   position: absolute;
   right: 16px;
@@ -70,8 +70,8 @@
 .proc-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
 
 :root[data-theme='light'] .proc-fill { box-shadow: none; }
-:root[data-theme='light'] .proc-num { -webkit-text-stroke-color: rgba(37, 99, 235, 0.3); }
-:root[data-theme='light'] .proc-track { background: repeating-linear-gradient(90deg, rgba(37, 99, 235, 0.3) 0 8px, transparent 8px 16px); }
+:root[data-theme='light'] .proc-num { -webkit-text-stroke-color: rgba(var(--a1-rgb), 0.3); }
+:root[data-theme='light'] .proc-track { background: repeating-linear-gradient(90deg, rgba(var(--a1-rgb), 0.3) 0 8px, transparent 8px 16px); }
 
 @media (max-width: 1000px) {
   .proc { grid-template-columns: 1fr 1fr; }

@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import { ArrowRight, CheckCircle2, X } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, CheckCircle2, X } from 'lucide-react';
 import { useEffect } from 'react';
 import type { Project } from '../../data/projects';
 import { TechIcon } from '../ui/TechIcon';
@@ -40,6 +40,11 @@ export function ProjectModal({ project, onClose }: { project: Project | null; on
               </div>
               <h3>{project.title}</h3>
               <p className="modal-desc">{project.short}</p>
+              {project.liveUrl && (
+                <a className="btn btn-primary modal-live" href={project.liveUrl} target="_blank" rel="noopener">
+                  Visit live site <ArrowUpRight />
+                </a>
+              )}
 
               <h4>Architecture</h4>
               <div className="flow">

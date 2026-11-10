@@ -1,8 +1,8 @@
 import { AnimatePresence, motion, useScroll, useSpring } from 'framer-motion';
-import { Moon, Sun } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { Check, Moon, Palette, Sun } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
 import { profile } from '../../data/profile';
-import type { Theme } from '../../hooks/useTheme';
+import { THEMES, type Theme } from '../../hooks/useTheme';
 import './layout.css';
 
 const LINKS = [
@@ -14,7 +14,20 @@ const LINKS = [
 ];
 const HELLOS = ['Say Namaste 🙏', 'Say Hello 👋', 'Say Hola 💃', 'Say Bonjour 🥐', 'Say Konnichiwa 🌸', 'Say Ciao 🍕'];
 
-export function Navbar({ theme, onToggleTheme }: { theme: Theme; onToggleTheme: () => void }) {
+export function Navbar({ theme, onSetTheme }: { theme: Theme; onSetTheme: (t: Theme) => void }) {
+  const [picker, setPicker] = useState(false);
+  const pickerRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (!picker) return;
+    const onDown = (e: PointerEvent) => !pickerRef.current?.contains(e.target as Node) && setPicker(false);
+    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setPicker(false);
+    document.addEventListener('pointerdown', onDown);
+    document.addEventListener('keydown', onKey);
+    return () => {
+      document.removeEventListener('pointerdown', onDown);
+      document.removeEventListener('keydown', onKey);
+    };
+  }, [picker]);
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState('');
@@ -70,19 +83,48 @@ export function Navbar({ theme, onToggleTheme }: { theme: Theme; onToggleTheme: 
           </AnimatePresence>
         </a>
 
-        <button className="theme-toggle" onClick={onToggleTheme} aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}>
-          <AnimatePresence mode="wait" initial={false}>
-            <motion.span
-              key={theme}
-              initial={{ rotate: -90, scale: 0, opacity: 0 }}
-              animate={{ rotate: 0, scale: 1, opacity: 1 }}
-              exit={{ rotate: 90, scale: 0, opacity: 0 }}
-              transition={{ duration: 0.3 }}
-            >
-              {theme === 'dark' ? <Moon size={18} /> : <Sun size={18} />}
-            </motion.span>
+        <div className="theme-wrap" ref={pickerRef}>
+          <button className="theme-toggle" onClick={() => setPicker(p => !p)} aria-label="Choose theme" aria-haspopup="menu" aria-expanded={picker}>
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.span
+                key={theme}
+                initial={{ rotate: -90, scale: 0, opacity: 0 }}
+                animate={{ rotate: 0, scale: 1, opacity: 1 }}
+                exit={{ rotate: 90, scale: 0, opacity: 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                {theme === 'dark' ? <Moon size={18} /> : theme === 'light' ? <Sun size={18} /> : <Palette size={18} />}
+              </motion.span>
+            </AnimatePresence>
+          </button>
+          <AnimatePresence>
+            {picker && (
+              <motion.div
+                className="theme-menu"
+                role="menu"
+                initial={{ opacity: 0, y: -8, scale: 0.96 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: -8, scale: 0.96 }}
+                transition={{ duration: 0.18 }}
+              >
+                <p className="theme-menu-title">Theme</p>
+                {THEMES.map(t => (
+                  <button
+                    key={t.id}
+                    role="menuitemradio"
+                    aria-checked={theme === t.id}
+                    className={`theme-opt ${theme === t.id ? 'on' : ''}`}
+                    onClick={() => { onSetTheme(t.id); setPicker(false); }}
+                  >
+                    <span className="theme-sw" style={{ background: `linear-gradient(135deg, ${t.swatch[1]}, ${t.swatch[2]})`, boxShadow: `inset 0 0 0 3px ${t.swatch[0]}` }} />
+                    <span className="theme-name">{t.label}<small>{t.base}</small></span>
+                    {theme === t.id && <Check size={15} />}
+                  </button>
+                ))}
+              </motion.div>
+            )}
           </AnimatePresence>
-        </button>
+        </div>
 
         <button className="burger" onClick={() => setOpen(o => !o)} aria-label="Menu" aria-expanded={open}>
           <span />

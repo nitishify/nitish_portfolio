@@ -8,7 +8,7 @@
   inset: -18px;
   border-radius: 44px;
   z-index: -1;
-  background: conic-gradient(from 0deg, #3b82f6, #22d3ee, #8b5cf6, #ec4899, #3b82f6);
+  background: conic-gradient(from 0deg, var(--blue), var(--cyan), #8b5cf6, #ec4899, var(--blue));
   filter: blur(34px);
   opacity: 0.5;
   animation: spin 10s linear infinite;
@@ -46,8 +46,8 @@
   display: grid;
   place-items: center;
   background:
-    radial-gradient(circle at 30% 20%, rgba(59, 130, 246, 0.35), transparent 60%),
-    radial-gradient(circle at 80% 90%, rgba(34, 211, 238, 0.25), transparent 55%),
+    radial-gradient(circle at 30% 20%, rgba(var(--a1-rgb), 0.35), transparent 60%),
+    radial-gradient(circle at 80% 90%, rgba(var(--a2-rgb), 0.25), transparent 55%),
     linear-gradient(var(--solid), var(--solid)) padding-box,
     var(--grad) border-box;
 }
@@ -105,7 +105,7 @@
 }
 .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
 .stat { padding: 24px 16px; text-align: center; border-radius: 20px; transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s; }
-.stat:hover { transform: translateY(-4px); border-color: rgba(59, 130, 246, 0.5); box-shadow: 0 16px 40px -20px rgba(59, 130, 246, 0.7); }
+.stat:hover { transform: translateY(-4px); border-color: rgba(var(--a1-rgb), 0.5); box-shadow: 0 16px 40px -20px rgba(var(--a1-rgb), 0.7); }
 .stat-num { display: block; font-family: var(--head); font-size: 40px; font-weight: 700; line-height: 1.05; }
 .stat > span:last-child { display: block; margin-top: 6px; font-size: 13px; color: var(--muted); line-height: 1.4; }
 

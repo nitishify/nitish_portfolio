@@ -10,8 +10,27 @@ import './Projects.css';
 
 export const PROJECT_ICONS = { chart: CandlestickChart, bot: BotMessageSquare, plane: Plane, grad: GraduationCap };
 
-/** Decorative cover: glowing grid, orbiting dots and the project's icon. */
+/** Real screenshot inside a browser-window frame. */
+function ScreenshotCover({ p, big }: { p: Project; big?: boolean }) {
+  const host = p.liveUrl ? new URL(p.liveUrl).host : '';
+  return (
+    <div className={`cover shot ${big ? 'big' : ''}`} style={{ ['--a' as string]: p.accent }}>
+      <div className="cover-blob" />
+      <div className="shot-window">
+        <div className="shot-bar">
+          <i /><i /><i />
+          <span className="shot-url">{host || 'API preview'}</span>
+        </div>
+        <img src={p.image} alt={`${p.title} screenshot`} loading="lazy" />
+      </div>
+      {p.liveUrl && <span className="live-badge"><span className="dot-live" /> Live</span>}
+    </div>
+  );
+}
+
+/** Project cover: a real screenshot when available, otherwise the illustrated graphic. */
 export function ProjectCover({ p, big }: { p: Project; big?: boolean }) {
+  if (p.image) return <ScreenshotCover p={p} big={big} />;
   const Icon = PROJECT_ICONS[p.icon];
   return (
     <div className={`cover ${big ? 'big' : ''}`} style={{ ['--a' as string]: p.accent }}>

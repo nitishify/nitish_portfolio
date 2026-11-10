@@ -17,7 +17,7 @@ import { Divider } from './components/ui/Divider';
 import { useTheme } from './hooks/useTheme';
 
 export default function App() {
-  const { theme, toggle } = useTheme();
+  const { theme, setTheme } = useTheme();
   const [loading, setLoading] = useState(true);
   const done = useCallback(() => setLoading(false), []);
 
@@ -32,7 +32,7 @@ export default function App() {
       <div className="noise" aria-hidden />
       <CursorGlow />
 
-      <Navbar theme={theme} onToggleTheme={toggle} />
+      <Navbar theme={theme} onSetTheme={setTheme} />
       <main className="main">
         <Hero start={!loading} />
         <About />

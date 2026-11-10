@@ -11,8 +11,8 @@
 /* ---------- Background ---------- */
 .hero-bg { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
 .aurora { position: absolute; border-radius: 50%; filter: blur(90px); opacity: 0.55; mix-blend-mode: screen; }
-.a1 { width: 620px; height: 620px; left: -160px; top: -200px; background: radial-gradient(circle, #2563eb, transparent 65%); animation: drift1 18s ease-in-out infinite; }
-.a2 { width: 560px; height: 560px; right: -120px; top: 40px; background: radial-gradient(circle, #0891b2, transparent 65%); animation: drift2 22s ease-in-out infinite; }
+.a1 { width: 620px; height: 620px; left: -160px; top: -200px; background: radial-gradient(circle, var(--blue-deep), transparent 65%); animation: drift1 18s ease-in-out infinite; }
+.a2 { width: 560px; height: 560px; right: -120px; top: 40px; background: radial-gradient(circle, var(--cyan-deep), transparent 65%); animation: drift2 22s ease-in-out infinite; }
 .a3 { width: 480px; height: 480px; left: 35%; bottom: -220px; background: radial-gradient(circle, #7c3aed, transparent 65%); animation: drift1 26s ease-in-out infinite reverse; opacity: 0.4; }
 @keyframes drift1 { 50% { transform: translate(120px, 80px) scale(1.15); } }
 @keyframes drift2 { 50% { transform: translate(-100px, 120px) scale(0.9); } }
@@ -33,7 +33,7 @@
 .hero-spot {
   position: absolute;
   inset: 0;
-  background: radial-gradient(500px circle at var(--mx, 50%) var(--my, 30%), rgba(59, 130, 246, 0.12), transparent 60%);
+  background: radial-gradient(500px circle at var(--mx, 50%) var(--my, 30%), rgba(var(--a1-rgb), 0.12), transparent 60%);
 }
 .hero-fade { position: absolute; left: 0; right: 0; bottom: 0; height: 200px; background: linear-gradient(transparent, var(--bg)); }
 
@@ -88,7 +88,7 @@
 .split { display: inline-block; }
 .split-mask { display: inline-block; overflow: hidden; padding-bottom: 0.08em; margin-bottom: -0.08em; vertical-align: top; }
 .split-char { display: inline-block; transform-origin: 0 100%; }
-.last-name { padding-right: 0.04em; filter: drop-shadow(0 0 28px rgba(59, 130, 246, 0.45)); }
+.last-name { padding-right: 0.04em; filter: drop-shadow(0 0 28px rgba(var(--a1-rgb), 0.45)); }
 
 .role {
   margin-top: 18px;

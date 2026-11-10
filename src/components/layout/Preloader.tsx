@@ -60,9 +60,9 @@ export function Preloader({ onDone }: { onDone: () => void }) {
           <svg viewBox="0 0 200 200" className="pl-ring" aria-hidden>
             <defs>
               <linearGradient id="plRing" x1="0" x2="1" y1="0" y2="1">
-                <stop offset="0" stopColor="#3b82f6" />
-                <stop offset=".55" stopColor="#22d3ee" />
-                <stop offset="1" stopColor="#a78bfa" />
+                <stop offset="0" style={{ stopColor: 'var(--blue)' }} />
+                <stop offset=".55" style={{ stopColor: 'var(--cyan)' }} />
+                <stop offset="1" style={{ stopColor: 'var(--a3)' }} />
               </linearGradient>
             </defs>
             <circle cx="100" cy="100" r={R} className="pl-track" />

@@ -35,10 +35,12 @@ export function ParticleField({ className }: { className?: string }) {
       }));
     };
 
-    const color = () => (document.documentElement.dataset.theme === 'light' ? '37, 99, 235' : '125, 211, 252');
+    const color = () => getComputedStyle(document.documentElement).getPropertyValue('--particle').trim() || '125, 211, 252';
+    const line = () => getComputedStyle(document.documentElement).getPropertyValue('--a2-rgb').trim() || '34, 211, 238';
 
     const draw = () => {
       const c = color();
+      const ln = line();
       ctx.clearRect(0, 0, w, h);
       for (const p of pts) {
         const dx = mouse.x - p.x, dy = mouse.y - p.y;
@@ -70,7 +72,7 @@ export function ParticleField({ className }: { className?: string }) {
         }
         const md = Math.hypot(a.x - mouse.x, a.y - mouse.y);
         if (md < 180) {
-          ctx.strokeStyle = `rgba(34, 211, 238, ${(1 - md / 180) * 0.5})`;
+          ctx.strokeStyle = `rgba(${ln}, ${(1 - md / 180) * 0.5})`;
           ctx.beginPath();
           ctx.moveTo(a.x, a.y);
           ctx.lineTo(mouse.x, mouse.y);

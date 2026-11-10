@@ -53,9 +53,9 @@ export function TechOrbit({ start }: { start: boolean }) {
         <svg className="orbit-lines" viewBox="0 0 520 520" aria-hidden>
           <defs>
             <linearGradient id="og" x1="0" x2="1" y1="0" y2="1">
-              <stop offset="0" stopColor="#3b82f6" />
-              <stop offset=".5" stopColor="#22d3ee" />
-              <stop offset="1" stopColor="#a78bfa" />
+              <stop offset="0" style={{ stopColor: 'var(--blue)' }} />
+              <stop offset=".5" style={{ stopColor: 'var(--cyan)' }} />
+              <stop offset="1" style={{ stopColor: 'var(--a3)' }} />
             </linearGradient>
           </defs>
           <circle cx="260" cy="260" r="245" className="ol-dash" />

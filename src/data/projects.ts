@@ -14,6 +14,10 @@ export interface Project {
   stack: string[];
   flow: { label: string; key?: boolean }[];
   points: string[];
+  /** Screenshot in public/projects; projects without one show the illustrated cover. */
+  image?: string;
+  /** Public URL of the live product. */
+  liveUrl?: string;
 }
 
 export const projectFilters: { id: 'all' | ProjectTag; label: string }[] = [
@@ -33,6 +37,8 @@ export const projects: Project[] = [
     year: '2025 – 2026',
     tags: ['fintech', 'aws'],
     title: 'iYUREK — Real-time Market Intelligence',
+    image: '/projects/iyurek.jpg',
+    liveUrl: 'https://app.iyurek.com',
     short: 'AI-powered platform that collects, analyzes and simplifies real-time cross-asset market data into fast, visual insights.',
     impact: ['Redis cache-first responses', '5 market regions', 'Price-alert emails'],
     stack: ['Python', 'AWS Lambda', 'API Gateway', 'Redis', 'MongoDB', 'CloudWatch'],
@@ -57,6 +63,7 @@ export const projects: Project[] = [
     id: 'ftmo',
     icon: 'bot',
     accent: '#a78bfa',
+    image: '/projects/ftmo.jpg',
     client: 'Trading Automation',
     domain: 'Fintech',
     year: 'Backend',
@@ -85,6 +92,7 @@ export const projects: Project[] = [
     id: 'anrari',
     icon: 'plane',
     accent: '#60a5fa',
+    image: '/projects/anrari.jpg',
     client: 'Rirabh Consulting',
     domain: 'Travel',
     year: 'Booking Platform',
@@ -118,6 +126,8 @@ export const projects: Project[] = [
     year: 'Counseling Platform',
     tags: ['platform'],
     title: 'Nayeedisha — Study Counseling',
+    image: '/projects/nayeedisha.jpg',
+    liveUrl: 'https://nayeedisha.in',
     short: 'Counseling platform guiding students toward courses in India and abroad, connecting students, counselors and admins.',
     impact: ['3 user roles with RBAC', 'Search & filtering', 'Documented REST API'],
     stack: ['Python', 'Django', 'DRF', 'PostgreSQL', 'JWT'],
