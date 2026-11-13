@@ -1,102 +1,108 @@
-/* The intro always uses the dark palette, regardless of theme. */
-.pl { position: fixed; inset: 0; z-index: 1000; pointer-events: all; }
+/* Intro loader — follows the active theme (dark, light and every palette). */
+.pl {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  pointer-events: all;
+  background: var(--bg);
+  color: var(--text);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+}
+/* Very soft accent wash so the panel isn't flat */
+.pl::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(700px circle at 50% 42%, rgba(var(--a1-rgb), 0.09), transparent 65%);
+  pointer-events: none;
+}
 
-.pl-cols { position: absolute; inset: 0; display: flex; }
-.pl-col { flex: 1; height: 100%; background: #06060c; margin-right: -1px; }
-.pl-col:nth-child(even) { background: #08080f; }
+.pl-inner { position: absolute; inset: 0; }
 
-.pl-content {
+/* ---------- Corners ---------- */
+.pl-corner {
+  position: absolute;
+  top: 32px;
+  font: 500 12px var(--sans);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+.pl-tl { left: 40px; }
+.pl-tr { right: 40px; }
+.pl-brand {
+  font: 400 26px var(--script);
+  letter-spacing: 0;
+  text-transform: none;
+  background: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  padding: 0 6px 4px 2px; /* room for script swashes */
+}
+
+/* ---------- Centre ---------- */
+.pl-center {
   position: absolute;
   inset: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: #f2f4fa;
-  overflow: hidden;
+  text-align: center;
+  padding: 0 24px;
 }
-.pl-aurora {
-  position: absolute;
-  inset: -20%;
-  z-index: -1;
-  background:
-    radial-gradient(500px circle at 35% 40%, rgba(var(--a1-rgb), 0.28), transparent 60%),
-    radial-gradient(420px circle at 65% 60%, rgba(var(--a2-rgb), 0.22), transparent 60%),
-    radial-gradient(380px circle at 50% 85%, rgba(124, 58, 237, 0.18), transparent 60%);
-  animation: plDrift 6s ease-in-out infinite alternate;
-}
-.pl-aurora::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-  background-size: 56px 56px;
-  mask-image: radial-gradient(circle at 50% 45%, #000 10%, transparent 55%);
-  -webkit-mask-image: radial-gradient(circle at 50% 45%, #000 10%, transparent 55%);
-}
-@keyframes plDrift { to { transform: translate(3%, -2%) scale(1.06); } }
-
-/* ---------- Photo + progress ring ---------- */
-.pl-avatar { position: relative; width: 200px; height: 200px; display: grid; place-items: center; }
-.pl-halo {
-  position: absolute;
-  inset: -18px;
-  border-radius: 50%;
-  background: conic-gradient(from 0deg, var(--blue), var(--cyan), #a78bfa, var(--blue));
-  filter: blur(26px);
-  opacity: 0.45;
-  animation: spin 4s linear infinite;
-}
-.pl-ring { position: absolute; inset: 0; width: 100%; height: 100%; transform: rotate(-90deg); overflow: visible; }
-.pl-track { fill: none; stroke: rgba(255, 255, 255, 0.08); stroke-width: 3; }
-.pl-progress { fill: none; stroke: url(#plRing); stroke-width: 4; stroke-linecap: round; transition: stroke-dashoffset 0.12s linear; filter: drop-shadow(0 0 6px rgba(var(--a2-rgb), 0.8)); }
-.pl-dot { fill: #fff; filter: drop-shadow(0 0 8px var(--cyan)) drop-shadow(0 0 3px #fff); }
+.pl-avatar { position: relative; width: 168px; height: 168px; display: grid; place-items: center; }
+.pl-ring { position: absolute; inset: 0; width: 100%; height: 100%; transform: rotate(-90deg); }
+.pl-track { fill: none; stroke: var(--border-2); stroke-width: 1.5; }
+.pl-progress { fill: none; stroke: var(--blue); stroke-width: 2.5; stroke-linecap: round; transition: stroke-dashoffset 0.12s linear; }
 .pl-photo {
-  position: relative;
-  width: 154px;
-  height: 154px;
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
   overflow: hidden;
-  background: #10101c;
-  box-shadow: 0 0 0 4px rgba(6, 6, 12, 0.9), 0 20px 50px -10px rgba(0, 0, 0, 0.8);
+  background: var(--bg-2);
+  box-shadow: 0 18px 40px -18px rgba(0, 0, 0, 0.55);
 }
-.pl-photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 18%;
-  transform: scale(calc(1.35 - var(--p) * 0.2));
-  /* Black & white → full colour as loading completes */
-  filter: grayscale(calc(1 - var(--p))) contrast(1.05) brightness(calc(0.75 + var(--p) * 0.25));
-  transition: filter 0.2s linear, transform 0.2s linear;
-}
-.pl-mono { display: grid; place-items: center; height: 100%; font: 700 52px var(--head); background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.pl-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 18%; }
+.pl-mono { display: grid; place-items: center; height: 100%; font: 700 44px var(--head); color: var(--blue); }
 
-/* ---------- Name + role ---------- */
-.pl-name { margin-top: 30px; display: flex; font-family: var(--head); font-weight: 700; font-size: clamp(34px, 5vw, 52px); letter-spacing: -0.03em; line-height: 1.05; }
-.pl-char-mask { display: inline-block; overflow: hidden; padding-bottom: 0.08em; margin-bottom: -0.08em; }
-.pl-char { display: inline-block; }
-.pl-char-mask:nth-last-child(-n + 3) .pl-char {
+.pl-name { margin-top: 30px; font-family: var(--head); font-weight: 700; font-size: clamp(36px, 5vw, 56px); letter-spacing: -0.035em; line-height: 1.05; }
+.pl-mask { display: inline-block; overflow: hidden; padding-bottom: 0.1em; margin-bottom: -0.1em; }
+.pl-line { display: inline-block; }
+.pl-name em {
+  font-style: normal;
   background: var(--grad);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
-.pl-role { margin-top: 10px; font: 500 12px var(--mono); text-transform: uppercase; color: #9aa3b8; }
+.pl-role { margin-top: 12px; font: 600 13px var(--sans); letter-spacing: 0.24em; text-transform: uppercase; color: var(--muted); }
+.pl-stack { margin-top: 8px; font: 500 13px var(--mono); color: var(--muted); opacity: 0.85; }
 
-/* ---------- Counter + bar ---------- */
-.pl-foot { display: flex; align-items: flex-end; justify-content: space-between; width: min(320px, 80vw); margin-top: 38px; }
-.pl-status { font: 500 12px var(--mono); color: #7dd3fc; }
-.pl-count { font: 700 34px var(--head); line-height: 1; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
-.pl-count small { font-size: 16px; color: #9aa3b8; margin-left: 2px; }
-.pl-bar { width: min(320px, 80vw); height: 2px; margin-top: 10px; border-radius: 2px; background: rgba(255, 255, 255, 0.08); overflow: hidden; }
-.pl-bar span { display: block; height: 100%; background: var(--grad); box-shadow: 0 0 10px rgba(var(--a2-rgb), 0.8); transition: width 0.12s linear; }
+/* ---------- Bottom ---------- */
+.pl-bottom {
+  position: absolute;
+  left: 40px;
+  right: 40px;
+  bottom: 30px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+.pl-loc { font: 500 12px var(--sans); letter-spacing: 0.14em; text-transform: uppercase; color: var(--dim); }
+.pl-count { font: 600 44px var(--head); line-height: 0.9; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; min-width: 3ch; text-align: right; }
+.pl-count small { font-size: 18px; font-weight: 500; color: var(--dim); margin-left: 3px; }
+.pl-bar { position: absolute; left: 0; right: 0; bottom: 0; height: 3px; background: var(--border); }
+.pl-bar span { display: block; height: 100%; background: var(--grad); transform-origin: left; transition: transform 0.12s linear; }
 
 @media (max-width: 640px) {
-  .pl-avatar { width: 170px; height: 170px; }
-  .pl-photo { width: 130px; height: 130px; }
-  .pl-role { font-size: 10.5px; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .pl-halo, .pl-aurora { animation: none; }
+  .pl-corner { top: 22px; }
+  .pl-tl { left: 20px; }
+  .pl-tr { right: 20px; }
+  .pl-bottom { left: 20px; right: 20px; bottom: 22px; }
+  .pl-avatar { width: 140px; height: 140px; }
+  .pl-photo { width: 116px; height: 116px; }
+  .pl-role { font-size: 11.5px; letter-spacing: 0.18em; }
+  .pl-count { font-size: 34px; }
 }
