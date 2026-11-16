@@ -8,13 +8,13 @@
 <meta name="keywords" content="Full Stack Developer, Python Developer, Backend Developer, Django, Django REST Framework, FastAPI, Flask, React, AWS Lambda, API Gateway, SQS, EventBridge, PostgreSQL, MongoDB, Redis, REST API, Microservices">
 <style>
   /*
-   * ATS-friendly, interview-ready resume (2 pages, A4):
+   * ATS-friendly, interview-ready resume (3 pages, A4):
    *  - single column, read top-to-bottom in DOM order (no tables, no multi-column grids)
    *  - standard section headings, plain bullets, no icons or text inside graphics
    *  - real selectable text with full URLs
    * Regenerate the PDF with:  npm run resume
    */
-  @page { size: A4; margin: 10mm 13mm 9mm; }
+  @page { size: A4; margin: 11mm 14mm 10mm; }
   :root {
     --ink: #111827;
     --body: #1f2937;
@@ -27,8 +27,8 @@
   body {
     font-family: Calibri, Carlito, 'Segoe UI', Arial, sans-serif;
     color: var(--body);
-    font-size: 9.8pt;
-    line-height: 1.26;
+    font-size: 10.1pt;
+    line-height: 1.3;
     background: #fff;
     /* No ligatures: "fi"/"fl" glyphs extract as single characters and break ATS keyword matching */
     font-variant-ligatures: none;
@@ -44,7 +44,7 @@
   .contact span + span::before { content: ' | '; color: var(--rule); }
 
   /* Sections */
-  section { margin-top: 8px; }
+  section { margin-top: 10px; }
   h2 {
     font-size: 11.2pt;
     font-weight: 700;
@@ -62,7 +62,7 @@
   .skills b, li b { color: var(--ink); }
 
   /* Jobs & projects */
-  .item { margin-top: 7px; }
+  .item { margin-top: 9px; }
   .item:first-of-type { margin-top: 0; }
   .head { break-inside: avoid; break-after: avoid; }
   .row { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
@@ -95,7 +95,10 @@
       serverless, event-driven systems on AWS. Strong in Python (Django, Django REST Framework, FastAPI, Flask) on the backend and React on the
       frontend, with hands-on experience in PostgreSQL, MySQL, MongoDB and Redis. Has shipped products across fintech (real-time market data and
       automated trading), travel (flight and hotel booking) and edtech (student counseling), including two platforms that are live today.
-      Owns features end-to-end, from schema and API design to deployment and the user interface.
+      Owns features end-to-end, from schema and API design to deployment and the user interface. Known for building systems that stay
+      reliable under real-world conditions through caching, provider fallbacks, strict input validation and structured logging, and for
+      working closely with frontend, DevOps and client teams in Agile sprints. Looking to bring this backend depth and product focus to a
+      team building scalable Python products.
     </p>
   </section>
 
@@ -106,6 +109,8 @@
       <li>Automated <b>real-time trade execution across 2 brokers</b> (MetaTrader 5 and OANDA) from strategy webhooks, with validated payloads, detailed logging and email status alerts.</li>
       <li>Delivered the backend of a <b>live edtech platform</b> (nayeedisha.in) with role-based access for students, counselors and admins.</li>
       <li>Integrated <b>third-party supplier and data APIs</b> (Travel Boutique, Twelve Data, FMP) with error handling and fallback strategies so user-facing features keep working when a provider fails.</li>
+      <li>Moved slow and scheduled work into <b>event-driven background processing</b> with AWS SQS and EventBridge, keeping user-facing APIs fast.</li>
+      <li>Shipped <b>4+ production products across 4 industries</b> (fintech, trading, travel, edtech) at 3 companies, and was <b>rehired by Rirabh</b> in an expanded full stack role.</li>
     </ul>
   </section>
 
@@ -113,12 +118,14 @@
     <h2>Technical Skills</h2>
     <p><b>Languages:</b> Python, JavaScript, SQL, HTML5, CSS3</p>
     <p><b>Backend:</b> Django, Django REST Framework (DRF), FastAPI, Flask, SQLAlchemy, Django ORM, Pydantic, Marshmallow, httpx</p>
-    <p><b>Frontend:</b> React.js, responsive UI, REST API integration</p>
+    <p><b>Frontend:</b> React.js, TypeScript, Vite, Framer Motion, responsive UI, REST API integration</p>
     <p><b>Cloud (AWS):</b> Lambda, API Gateway, EventBridge, SQS, SNS, CloudWatch, S3, EC2, Cognito</p>
     <p><b>Databases &amp; Caching:</b> PostgreSQL, MySQL, MongoDB, Redis</p>
     <p><b>Architecture:</b> REST API design, Microservices, Serverless, Event-Driven Architecture, Webhooks, Caching strategies</p>
     <p><b>Security:</b> JWT Authentication, Role-Based Access Control (RBAC), input validation</p>
-    <p><b>Tools &amp; Practices:</b> Git, GitHub, Postman, Linux, Pandas, NumPy, code reviews, structured logging, Agile/Scrum</p>
+    <p><b>API &amp; Integration:</b> Webhooks, third-party API integration, Swagger / OpenAPI documentation, httpx, retry and fallback handling</p>
+    <p><b>Tools &amp; Practices:</b> Git, GitHub, Postman, Linux, Vercel, Pandas, NumPy, code reviews, structured logging, Agile/Scrum</p>
+    <p><b>CS Fundamentals:</b> Data Structures &amp; Algorithms, Object-Oriented Programming, DBMS, query optimization and indexing</p>
   </section>
 
   <section>
@@ -138,6 +145,8 @@
         <li>Develop scalable backend services with Python, Django, Django REST Framework and FastAPI, deployed on AWS.</li>
         <li>Design clear API contracts and integrate them with React frontends, secured with JWT authentication.</li>
         <li>Raise code quality across the team through code reviews, structured logging and maintainable, modular architecture.</li>
+        <li>Translate client requirements into technical designs and task breakdowns, and estimate and deliver work in Agile sprints.</li>
+        <li>Document APIs so frontend developers and clients can integrate quickly, and support deployments and production issues.</li>
       </ul>
     </div>
 
@@ -156,6 +165,8 @@
         <li>Delivered live market data from Twelve Data and FMP using a <b>Redis cache-first strategy with API fallback</b>, keeping responses fast and resilient to provider outages.</li>
         <li>Built watchlist and <b>price-alert</b> APIs that email users when their stock thresholds are met.</li>
         <li>Built <b>FastAPI webhook services</b> that turn external strategy signals into trades on MetaTrader 5 and OANDA accounts.</li>
+        <li>Validated every incoming signal with <b>Pydantic</b> models before execution, and added error handling and alerts so failed orders were never silent.</li>
+        <li>Organized market indices by region (US, Asia, Europe, Crypto, Commodities) and stored user watchlists and alert settings in <b>MongoDB</b>.</li>
         <li>Refactored the codebase for performance and replaced ad-hoc print statements with <b>structured CloudWatch logging</b>, making production issues faster to trace.</li>
       </ul>
     </div>
@@ -175,6 +186,8 @@
         <li>Implemented serialization and validation with DRF Serializers and Marshmallow for clean, consistent API responses.</li>
         <li>Secured APIs with <b>JWT authentication and role-based access control</b> for multiple user roles.</li>
         <li>Integrated the Travel Boutique supplier API for real-time flight and hotel availability, pricing and booking.</li>
+        <li>Built the Nayeedisha backend (live at nayeedisha.in) with course search, filtering, inquiry submission and profile management for students, counselors and admins.</li>
+        <li>Added fallback strategies and clear error responses around third-party API calls so booking flows degraded gracefully when a supplier failed.</li>
         <li>Owned API testing with Postman collections, wrote API documentation and automated repetitive tasks with Python scripts.</li>
       </ul>
     </div>
@@ -190,6 +203,7 @@
       <ul>
         <li>Built RESTful APIs with Flask and Django on MySQL and PostgreSQL as part of a development team.</li>
         <li>Applied OOP, DBMS concepts and Git branching workflows on real-world client projects.</li>
+        <li>Wrote CRUD endpoints, request validation and database queries, and fixed bugs reported during code reviews.</li>
       </ul>
     </div>
   </section>
@@ -270,6 +284,23 @@
       <p class="meta"><b>Architecture:</b> Students / Counselors / Admins → Django + DRF → RBAC + JWT → PostgreSQL</p>
       <p class="meta"><b>Tech:</b> Python, Django, Django REST Framework, PostgreSQL, JWT</p>
     </div>
+
+    <div class="item">
+      <div class="head">
+        <div class="row">
+          <span class="role">Personal Portfolio Website</span>
+          <span class="dates">Personal Project</span>
+        </div>
+        <div class="org">Live: https://nitish-portfolio-lime.vercel.app</div>
+      </div>
+      <p class="context">Fast, responsive single-page portfolio showcasing my experience, projects and resume.</p>
+      <ul>
+        <li>Built with React, TypeScript and Vite, with typed data files for experience and projects so content updates need no UI changes.</li>
+        <li>Designed a theme system with 7 color themes driven by CSS custom properties, with the choice saved per visitor.</li>
+        <li>Added Framer Motion animations, a working contact form, Open Graph tags for link previews, and a resume PDF generated from HTML by a Node script.</li>
+      </ul>
+      <p class="meta"><b>Tech:</b> React, TypeScript, Vite, Framer Motion, CSS, Node.js, Vercel</p>
+    </div>
   </section>
 
   <section>
@@ -278,6 +309,7 @@
       <span><span class="role">B.Tech, Computer Science and Engineering</span> <span class="org">– Abdul Kalam Technical University (AKTU) | CGPA: 7.2/10</span></span>
       <span class="dates">2018 – 2022</span>
     </div>
+    <p class="meta"><b>Relevant coursework:</b> Data Structures and Algorithms, Database Management Systems, Object-Oriented Programming, Operating Systems, Computer Networks, Software Engineering</p>
   </section>
 
   <section>
@@ -286,6 +318,8 @@
       <li><b>End-to-end ownership:</b> takes a feature from requirement and schema design through API, UI, deployment and monitoring.</li>
       <li><b>Reliability mindset:</b> designs for failure with caching, fallbacks, validation and structured logging.</li>
       <li><b>Collaboration:</b> works closely with frontend, DevOps and client teams in Agile sprints and documents APIs for other developers.</li>
+      <li><b>Fast learner:</b> moved from Django/Flask client work to serverless AWS and real-time trading systems, and picked up new SDKs and APIs quickly.</li>
+      <li><b>Problem solving:</b> debugs production issues methodically using logs and metrics, and fixes the root cause rather than the symptom.</li>
     </ul>
   </section>
 </body>
