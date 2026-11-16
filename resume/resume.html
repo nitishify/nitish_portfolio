@@ -40,7 +40,7 @@
 
   /* ---------- Header ---------- */
   header { padding-bottom: 10px; border-bottom: 2.5px solid var(--accent); }
-  h1 { font-size: 26pt; line-height: 1.05; font-weight: 700; color: var(--ink); letter-spacing: 0.01em; }
+  h1 { font-size: 26pt; line-height: 1.05; font-weight: 700; color: var(--ink); }
   h1 span { color: var(--accent); }
   .title { margin-top: 3px; font-size: 12.5pt; font-weight: 600; color: var(--accent-2); }
   .contact { margin-top: 6px; font-size: 9.8pt; color: var(--muted); }
@@ -54,9 +54,9 @@
     display: flex;
     align-items: center;
     gap: 9px;
-    font-size: 11pt;
+    font-size: 11.5pt;
     font-weight: 700;
-    letter-spacing: 0.12em;
+    letter-spacing: 0;
     text-transform: uppercase;
     color: var(--accent);
     margin-bottom: 7px;
@@ -88,12 +88,12 @@
   h2 + .proj { margin-top: 0; }
   .proj .role { font-size: 10.6pt; }
   .proj .link { color: var(--accent); font-size: 9.6pt; }
-  .proj p { margin-top: 1px; text-align: left; }
+  .proj ul { margin-top: 2px; }
 </style>
 </head>
 <body>
   <header>
-    <h1>NITISH <span>RAJ</span></h1>
+    <h1>NITISH RAJ</h1>
     <div class="title">Full Stack Developer | Python, Django, FastAPI, React, AWS</div>
     <div class="contact">
       <span>Ghaziabad, India</span><span>+91 79034 32878</span><span><a href="mailto:nitishr097@gmail.com">nitishr097@gmail.com</a></span><span><a href="https://www.linkedin.com/in/nitishraj2000">linkedin.com/in/nitishraj2000</a></span><span><a href="https://github.com/nitishraj98">github.com/nitishraj98</a></span>
@@ -106,22 +106,12 @@
   <section>
     <h2>Summary</h2>
     <p>
-      Full Stack Developer with <b>3.8+ years</b> of experience building production web applications, REST APIs and serverless,
-      event-driven systems on <b>AWS</b>. Strong in <b>Python (Django, DRF, FastAPI, Flask)</b> on the backend and <b>React</b> on the
-      frontend, with hands-on PostgreSQL, MySQL, MongoDB and Redis. Shipped products across fintech, trading, travel and edtech, two of
-      them live today. Builds systems that keep working under real-world failures through caching, provider fallbacks, strict
-      validation and structured logging.
+      Full Stack Developer with <b>3.8+ years</b> of experience designing and shipping production web applications, REST APIs and
+      serverless, event-driven systems on <b>AWS</b>. Backend specialist in <b>Python (Django, DRF, FastAPI, Flask)</b> who also builds
+      <b>React</b> frontends, with production experience in PostgreSQL, MySQL, MongoDB and Redis. Delivered products across fintech,
+      trading, travel and edtech, two of them live today, with a focus on reliability: caching, provider fallbacks, strict validation
+      and well-logged, observable services.
     </p>
-  </section>
-
-  <section>
-    <h2>Key Highlights</h2>
-    <ul>
-      <li>Built <b>serverless market-data APIs</b> for a live fintech platform (app.iyurek.com) with a <b>Redis cache-first</b> design and fallback between two data providers.</li>
-      <li>Automated <b>real-time trade execution across 2 brokers</b> (MetaTrader 5 and OANDA) from strategy webhooks, with validation and failure alerts.</li>
-      <li>Delivered the backend of a <b>live edtech platform</b> (nayeedisha.in) with role-based access for students, counselors and admins.</li>
-      <li>Shipped <b>4+ production products across 4 industries</b> at 3 companies, and was <b>rehired by Rirabh</b> in an expanded full stack role.</li>
-    </ul>
   </section>
 
   <section>
@@ -143,12 +133,12 @@
         <span class="role">Full Stack Developer</span>
         <span class="dates">Mar 2026 – Present</span>
       </div>
-      <div class="org">Rirabh Consulting Services LLP <span class="loc">· Noida, India · Rejoined in an expanded full stack role</span></div>
+      <div class="org">Rirabh Consulting Services LLP <span class="loc">· Noida, India · Rehired in an expanded full stack role</span></div>
       <ul>
-        <li>Build features end-to-end: database schema, REST APIs with <b>Django, DRF and FastAPI</b>, and responsive <b>React</b> interfaces.</li>
-        <li>Design clear API contracts and connect them to React frontends, secured with <b>JWT authentication</b>.</li>
-        <li>Turn client requirements into technical designs and task breakdowns, and deliver them in Agile sprints.</li>
-        <li>Raise code quality through code reviews, structured logging and modular architecture; support AWS deployments.</li>
+        <li>Own features end-to-end, from <b>PostgreSQL schema</b> and <b>Django / DRF / FastAPI</b> services to <b>React</b> interfaces deployed on AWS.</li>
+        <li>Define API contracts with frontend developers up front and secure them with <b>JWT</b>, so UI and backend work proceed in parallel.</li>
+        <li>Convert client requirements into technical designs and sprint tasks; estimate, plan and deliver work in <b>Agile</b> sprints.</li>
+        <li>Lead code reviews and introduce <b>structured logging</b> and modular service layers, making the codebase easier to debug and extend.</li>
       </ul>
     </div>
 
@@ -157,14 +147,14 @@
         <span class="role">Software Engineer</span>
         <span class="dates">Feb 2025 – Mar 2026</span>
       </div>
-      <div class="org">IOanyT Innovations Pvt. Ltd. <span class="loc">· Noida, India · Real-time fintech products</span></div>
+      <div class="org">IOanyT Innovations Pvt. Ltd. <span class="loc">· Noida, India · Real-time fintech and trading systems</span></div>
       <ul>
-        <li>Built Python APIs on <b>AWS Lambda and API Gateway</b> for the iYUREK market platform, covering 5 market regions.</li>
-        <li>Served live market data from Twelve Data and FMP with a <b>Redis cache-first</b> design and automatic provider fallback.</li>
-        <li>Moved slow and scheduled jobs into background processing with <b>AWS SQS and EventBridge</b>, keeping APIs fast.</li>
-        <li>Built <b>FastAPI webhooks</b> that turn strategy signals into trades on <b>MetaTrader 5 and OANDA</b>, validated with Pydantic.</li>
-        <li>Built watchlist and price-alert APIs on <b>MongoDB</b> that email users when a stock hits their target.</li>
-        <li>Replaced print statements with <b>structured CloudWatch logging</b>, making production issues faster to trace.</li>
+        <li>Designed and built serverless Python APIs on <b>AWS Lambda and API Gateway</b> powering real-time market data for iYUREK across <b>5 regions</b>.</li>
+        <li>Implemented a <b>Redis cache-first</b> layer with automatic fallback between <b>Twelve Data and FMP</b>, keeping prices available during provider outages and reducing calls to paid APIs.</li>
+        <li>Decoupled slow and scheduled work into <b>SQS and EventBridge</b> background jobs, keeping user-facing endpoints fast and responsive.</li>
+        <li>Built a <b>FastAPI webhook service</b> that validates strategy signals with <b>Pydantic</b> and executes trades on <b>MetaTrader 5 and OANDA</b>, with email alerts on every success and failure.</li>
+        <li>Shipped watchlist and price-alert APIs on <b>MongoDB</b> that notify users by email when a stock crosses their target.</li>
+        <li>Replaced ad-hoc print statements with <b>structured CloudWatch logging</b> across services, cutting the time needed to trace production issues.</li>
       </ul>
     </div>
 
@@ -175,11 +165,11 @@
       </div>
       <div class="org">Rirabh Consulting Services LLP <span class="loc">· Noida, India · Client web applications</span></div>
       <ul>
-        <li>Built REST APIs with <b>Django REST Framework and Flask</b> for multiple client applications, including Anrari and Nayeedisha.</li>
-        <li>Designed PostgreSQL/MySQL schemas and wrote optimized <b>Django ORM and SQLAlchemy</b> queries, with indexes for fast search.</li>
-        <li>Secured APIs with <b>JWT and role-based access control</b>; validated data with DRF serializers and Marshmallow.</li>
-        <li>Integrated the <b>Travel Boutique API</b> for live flight and hotel booking, with fallbacks when the supplier failed.</li>
-        <li>Tested APIs with Postman, wrote API documentation and automated repetitive tasks with Python scripts.</li>
+        <li>Built and maintained REST APIs with <b>Django REST Framework and Flask</b> for client products, including Anrari (travel) and Nayeedisha (edtech).</li>
+        <li>Designed relational schemas on <b>PostgreSQL and MySQL</b> and tuned <b>Django ORM / SQLAlchemy</b> queries with targeted indexes to speed up search.</li>
+        <li>Integrated the <b>Travel Boutique</b> supplier API for live flight and hotel search and booking, with fallbacks so booking flows degraded gracefully on supplier failure.</li>
+        <li>Implemented <b>JWT authentication and role-based access control</b> for 3 user roles (students, counselors, admins) on Nayeedisha.</li>
+        <li>Standardized validation and responses with DRF serializers and Marshmallow; documented APIs and maintained Postman collections for QA and frontend teams.</li>
       </ul>
     </div>
 
@@ -190,7 +180,7 @@
       </div>
       <div class="org">TwoWaits Technologies Pvt. Ltd. <span class="loc">· Noida, India</span></div>
       <ul>
-        <li>Built REST APIs with Flask and Django on MySQL and PostgreSQL, using OOP, DBMS concepts and Git workflows.</li>
+        <li>Developed CRUD REST APIs with Flask and Django on MySQL and PostgreSQL, applying OOP, DBMS fundamentals and Git branching workflows.</li>
       </ul>
     </div>
   </section>
@@ -203,8 +193,11 @@
         <span class="role">iYUREK – Real-time Market Intelligence Platform</span>
         <span class="link"><a href="https://app.iyurek.com">app.iyurek.com</a></span>
       </div>
-      <p>Serverless APIs serving live index prices for US, Asia, Europe, Crypto and Commodities, with Redis caching, provider fallback, watchlists and email price alerts.</p>
-      <div class="tech"><b>Tech:</b> Python, AWS Lambda, API Gateway, Redis, MongoDB, CloudWatch</div>
+      <ul>
+        <li>Serverless APIs serving live index prices, change and % change for US, Asia, Europe, Crypto and Commodities markets.</li>
+        <li>Redis cache-first reads with provider fallback, user watchlists and email price alerts, monitored through CloudWatch.</li>
+      </ul>
+      <div class="tech"><b>Tech:</b> Python, AWS Lambda, API Gateway, SQS, EventBridge, Redis, MongoDB, CloudWatch</div>
     </div>
 
     <div class="proj">
@@ -212,7 +205,10 @@
         <span class="role">FTMO Trading Bot – Automated Trade Execution</span>
         <span class="dates">IOanyT Innovations</span>
       </div>
-      <p>Webhook backend that validates strategy signals and places trades on MetaTrader 5 and OANDA in real time, with email alerts on success or failure.</p>
+      <ul>
+        <li>Webhook backend that receives buy/sell signals from strategy platforms and places orders on MetaTrader 5 and OANDA in real time.</li>
+        <li>Pydantic-validated payloads, detailed logging and email notifications with execution status and failure details.</li>
+      </ul>
       <div class="tech"><b>Tech:</b> Python, FastAPI, Pydantic, MetaTrader 5 SDK, OANDA SDK, httpx</div>
     </div>
 
@@ -221,7 +217,10 @@
         <span class="role">Anrari – Flight and Hotel Booking Platform</span>
         <span class="dates">Rirabh Consulting</span>
       </div>
-      <p>Booking backend with live availability and pricing from the Travel Boutique API, JWT auth, booking history and graceful handling of supplier failures.</p>
+      <ul>
+        <li>Booking backend with live availability and pricing from the Travel Boutique API, booking history and profile management.</li>
+        <li>JWT-secured Flask APIs with SQLAlchemy models, Marshmallow validation and fallback handling for supplier failures.</li>
+      </ul>
       <div class="tech"><b>Tech:</b> Python, Flask, SQLAlchemy, Marshmallow, PostgreSQL, JWT</div>
     </div>
 
@@ -230,7 +229,10 @@
         <span class="role">Nayeedisha – Study Counseling Platform</span>
         <span class="link"><a href="https://nayeedisha.in">nayeedisha.in</a></span>
       </div>
-      <p>Backend for students, counselors and admins with role-based access, course search and filtering, inquiries and indexed PostgreSQL queries.</p>
+      <ul>
+        <li>Backend connecting students, counselors and admins, with role-based access and documented REST APIs.</li>
+        <li>Course search, filtering and inquiry workflows backed by indexed PostgreSQL queries.</li>
+      </ul>
       <div class="tech"><b>Tech:</b> Python, Django, Django REST Framework, PostgreSQL, JWT</div>
     </div>
 
@@ -239,8 +241,10 @@
         <span class="role">Personal Portfolio Website</span>
         <span class="link"><a href="https://nitish-portfolio-lime.vercel.app">nitish-portfolio-lime.vercel.app</a></span>
       </div>
-      <p>Responsive portfolio with 7 color themes, animations, a contact form and this resume generated from HTML.</p>
-      <div class="tech"><b>Tech:</b> React, TypeScript, Vite, Framer Motion, Vercel</div>
+      <ul>
+        <li>Responsive React + TypeScript site with 7 themes, animations, a working contact form and an HTML-to-PDF resume build.</li>
+      </ul>
+      <div class="tech"><b>Tech:</b> React, TypeScript, Vite, Framer Motion, Node.js, Vercel</div>
     </div>
   </section>
 
@@ -252,16 +256,6 @@
     </div>
     <div class="org">Abdul Kalam Technical University (AKTU) <span class="loc">· CGPA 7.2/10</span></div>
     <div class="tech"><b>Coursework:</b> Data Structures and Algorithms, DBMS, Object-Oriented Programming, Operating Systems, Computer Networks</div>
-  </section>
-
-  <section>
-    <h2>Strengths</h2>
-    <ul>
-      <li><b>End-to-end ownership:</b> takes a feature from requirement and schema design through API, UI, deployment and monitoring.</li>
-      <li><b>Reliability mindset:</b> designs for failure with caching, fallbacks, input validation and structured logging.</li>
-      <li><b>Collaboration:</b> works closely with frontend, DevOps and client teams in Agile sprints, and documents APIs for others.</li>
-      <li><b>Fast learner:</b> moved from Django/Flask client work to serverless AWS and real-time trading systems.</li>
-    </ul>
   </section>
 </body>
 </html>
