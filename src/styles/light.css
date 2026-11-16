@@ -96,7 +96,7 @@
   & .proj-open { color: color-mix(in srgb, var(--a) 60%, #0f172a); }
   & .proj-meta span:first-child { color: color-mix(in srgb, var(--a) 55%, #0f172a); }
   & .impact span { color: #047857; background: #ecfdf5; border-color: #a7f3d0; }
-  & .modal-bg { background: rgba(15, 23, 42, 0.45); }
+  & .pp-next strong, & .pp-title { color: #0f172a; }
   & .flow-node { background: #f1f5f9; }
 
   /* ---------- Experience ---------- */

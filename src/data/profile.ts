@@ -5,7 +5,7 @@ export const profile = {
   title: 'Full Stack Developer',
   roles: ['Full Stack Developer', 'Python & Django Expert', 'FastAPI · REST APIs', 'AWS Serverless Builder', 'React Developer'],
   summary:
-    'Full Stack Developer with 3.8+ years building scalable web apps, REST APIs and serverless AWS systems — from real-time trading platforms to booking engines and edtech products.',
+    'Full Stack Developer with 3.8+ years building scalable web apps, REST APIs and serverless AWS systems — from a cloud PBX call engine and an accounting CRM to real-time trading platforms and booking engines.',
   location: 'Noida · Delhi NCR, India',
   email: 'nitishr097@gmail.com',
   phone: '+91 79034 32878',
@@ -28,20 +28,20 @@ export const profile = {
 
 export const heroStats = [
   { value: 3.8, decimals: 1, suffix: '+', label: 'Years experience' },
-  { value: 4, suffix: '+', label: 'Products shipped' },
+  { value: 6, suffix: '+', label: 'Products shipped' },
   { value: 12, suffix: '+', label: 'Core technologies' },
 ];
 
 export const aboutStats = {
   career: [
     { value: 3.8, decimals: 1, suffix: '+', label: 'Years of Experience' },
-    { value: 4, suffix: '+', label: 'Products Shipped' },
+    { value: 6, suffix: '+', label: 'Products Shipped' },
     { value: 3, label: 'Companies' },
   ],
   engineering: [
     { value: 8, suffix: '+', label: 'AWS Services in Production' },
     { value: 25, suffix: '+', label: 'Technologies Used' },
-    { value: 4, label: 'Industries Covered' },
+    { value: 6, label: 'Industries Covered' },
   ],
 };
 

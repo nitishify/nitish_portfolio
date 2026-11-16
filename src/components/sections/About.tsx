@@ -72,7 +72,7 @@ export function About() {
             </p>
             <p>
               Over the last <strong>3.8+ years</strong> I've built <strong>serverless trading systems on AWS</strong> that stream real-time
-              market data, <strong>broker-integrated trading bots</strong>, flight &amp; hotel booking engines and edtech platforms — using{' '}
+              market data, <strong>broker-integrated trading bots</strong>, flight &amp; hotel booking engines and edtech platforms. Today I build a <strong>real-time call flow engine for a cloud PBX</strong> and a <strong>CRM used by accounting firms in India and the UAE</strong> — using{' '}
               <strong>Python, Django, FastAPI, Flask, React, PostgreSQL, MongoDB and Redis</strong>.
             </p>
             <p>

@@ -1,36 +1,16 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import { ArrowUpRight, BotMessageSquare, BriefcaseBusiness, CandlestickChart, GraduationCap, Plane, Sparkle } from 'lucide-react';
+import { ArrowUpRight, BotMessageSquare, BriefcaseBusiness, CandlestickChart, FileStack, GraduationCap, PhoneCall, Plane, Sparkle } from 'lucide-react';
 import { useState } from 'react';
 import { projectFilters, projects, type Project } from '../../data/projects';
 import { SectionHeading } from '../ui/SectionHeading';
 import { Reveal } from '../ui/Reveal';
 import { TechIcon } from '../ui/TechIcon';
-import { ProjectModal } from './ProjectModal';
 import './Projects.css';
 
-export const PROJECT_ICONS = { chart: CandlestickChart, bot: BotMessageSquare, plane: Plane, grad: GraduationCap };
+export const PROJECT_ICONS = { chart: CandlestickChart, bot: BotMessageSquare, plane: Plane, grad: GraduationCap, phone: PhoneCall, briefcase: FileStack };
 
-/** Real screenshot inside a browser-window frame. */
-function ScreenshotCover({ p, big }: { p: Project; big?: boolean }) {
-  const host = p.liveUrl ? new URL(p.liveUrl).host : '';
-  return (
-    <div className={`cover shot ${big ? 'big' : ''}`} style={{ ['--a' as string]: p.accent }}>
-      <div className="cover-blob" />
-      <div className="shot-window">
-        <div className="shot-bar">
-          <i /><i /><i />
-          <span className="shot-url">{host || 'API preview'}</span>
-        </div>
-        <img src={p.image} alt={`${p.title} screenshot`} loading="lazy" />
-      </div>
-      {p.liveUrl && <span className="live-badge"><span className="dot-live" /> Live</span>}
-    </div>
-  );
-}
-
-/** Project cover: a real screenshot when available, otherwise the illustrated graphic. */
+/** Illustrated project cover; screenshots live in the gallery on each project's own page. */
 export function ProjectCover({ p, big }: { p: Project; big?: boolean }) {
-  if (p.image) return <ScreenshotCover p={p} big={big} />;
   const Icon = PROJECT_ICONS[p.icon];
   return (
     <div className={`cover ${big ? 'big' : ''}`} style={{ ['--a' as string]: p.accent }}>
@@ -44,6 +24,7 @@ export function ProjectCover({ p, big }: { p: Project; big?: boolean }) {
         <span className="ci-ring" />
         <Icon strokeWidth={1.5} />
       </div>
+      {p.liveUrl && <span className="live-badge"><span className="dot-live" /> Live</span>}
       <div className="cover-chips">
         {p.stack.slice(0, 3).map(s => (
           <span key={s}><TechIcon name={s === 'AWS Lambda' ? 'AWS' : s === 'DRF' ? 'Django' : s} size={14} />{s}</span>
@@ -53,13 +34,13 @@ export function ProjectCover({ p, big }: { p: Project; big?: boolean }) {
   );
 }
 
-function ProjectCard({ p, onOpen }: { p: Project; onOpen: () => void }) {
+function ProjectCard({ p }: { p: Project }) {
   return (
-    <motion.button
+    <motion.a
       layout
-      type="button"
+      href={`/projects/${p.id}`}
       className="proj glass"
-      onClick={onOpen}
+      aria-label={`${p.title}: open case study`}
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, scale: 0.94 }}
@@ -95,13 +76,12 @@ function ProjectCard({ p, onOpen }: { p: Project; onOpen: () => void }) {
           <span className="proj-open">Case study <ArrowUpRight size={16} /></span>
         </div>
       </div>
-    </motion.button>
+    </motion.a>
   );
 }
 
 export function Projects() {
   const [filter, setFilter] = useState<(typeof projectFilters)[number]['id']>('all');
-  const [open, setOpen] = useState<Project | null>(null);
   const shown = projects.filter(p => filter === 'all' || p.tags.includes(filter));
 
   return (
@@ -112,7 +92,7 @@ export function Projects() {
           eyebrow="Portfolio"
           title="Projects I've"
           highlight="Built & Shipped"
-          sub="Real products delivered for clients across fintech, travel and education. Open any project for the full case study."
+          sub="Real products delivered for clients across telecom, accounting, fintech, travel and education. Open any project for the full case study."
           lottie="web-dev"
         />
 
@@ -127,12 +107,11 @@ export function Projects() {
 
         <motion.div layout className="projects">
           <AnimatePresence initial={false}>
-            {shown.map(p => <ProjectCard key={p.id} p={p} onOpen={() => setOpen(p)} />)}
+            {shown.map(p => <ProjectCard key={p.id} p={p} />)}
           </AnimatePresence>
         </motion.div>
       </div>
 
-      <ProjectModal project={open} onClose={() => setOpen(null)} />
     </section>
   );
 }

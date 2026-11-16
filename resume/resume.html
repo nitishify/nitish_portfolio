@@ -29,7 +29,7 @@
     font-family: Calibri, Carlito, 'Segoe UI', Arial, sans-serif;
     color: var(--body);
     font-size: 10.3pt;
-    line-height: 1.36;
+    line-height: 1.33;
     background: #fff;
     /* No ligatures: "fi"/"fl" glyphs extract as single characters and break ATS keyword matching */
     font-variant-ligatures: none;
@@ -67,11 +67,12 @@
 
   /* ---------- Skills ---------- */
   .skill { display: flex; gap: 10px; margin-top: 3px; }
-  .skill b { flex: none; width: 118px; color: var(--ink); }
+  .skill b { flex: none; width: 122px; color: var(--ink); }
   .skill span { flex: 1; }
 
   /* ---------- Jobs & projects ---------- */
-  .item { margin-top: 11px; break-inside: avoid-page; }
+  .item { margin-top: 10px; }
+  .item .row, .item .org { break-after: avoid; }
   h2 + .item { margin-top: 0; }
   .row { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
   .role { font-weight: 700; color: var(--ink); font-size: 11pt; }
@@ -107,22 +108,23 @@
     <h2>Summary</h2>
     <p>
       Full Stack Developer with <b>3.8+ years</b> of experience designing and shipping production web applications, REST APIs and
-      serverless, event-driven systems on <b>AWS</b>. Backend specialist in <b>Python (Django, DRF, FastAPI, Flask)</b> who also builds
-      <b>React</b> frontends, with production experience in PostgreSQL, MySQL, MongoDB and Redis. Delivered products across fintech,
-      trading, travel and edtech, two of them live today, with a focus on reliability: caching, provider fallbacks, strict validation
-      and well-logged, observable services.
+      real-time backend systems. Backend specialist in <b>Python (Django, DRF, FastAPI, Flask)</b> who also builds <b>React</b>
+      frontends, with production experience in <b>AWS</b>, PostgreSQL, MySQL, MongoDB, Redis and <b>Asterisk telephony</b>. Currently
+      building a real-time call flow engine for a cloud PBX and a CRM used by accounting firms in India and the UAE; previously
+      shipped fintech, trading, travel and edtech products. Focused on reliability: validation, fallbacks and well-logged services.
     </p>
   </section>
 
   <section>
     <h2>Technical Skills</h2>
     <div class="skill"><b>Languages</b><span>Python, JavaScript, TypeScript, SQL, HTML5, CSS3</span></div>
-    <div class="skill"><b>Backend</b><span>Django, Django REST Framework, FastAPI, Flask, SQLAlchemy, Django ORM, Pydantic, Marshmallow</span></div>
+    <div class="skill"><b>Backend</b><span>Django, Django REST Framework, FastAPI, Flask, SQLAlchemy, Pydantic, Marshmallow</span></div>
     <div class="skill"><b>Frontend</b><span>React.js, Vite, responsive UI, REST API integration</span></div>
     <div class="skill"><b>Cloud (AWS)</b><span>Lambda, API Gateway, SQS, SNS, EventBridge, CloudWatch, S3, EC2, Cognito</span></div>
     <div class="skill"><b>Databases</b><span>PostgreSQL, MySQL, MongoDB, Redis</span></div>
     <div class="skill"><b>Architecture</b><span>REST API design, Microservices, Serverless, Event-Driven, Webhooks, Caching, JWT, RBAC</span></div>
-    <div class="skill"><b>Tools</b><span>Git, GitHub, Postman, Linux, Swagger/OpenAPI, Pandas, NumPy, Agile/Scrum</span></div>
+    <div class="skill"><b>Telephony</b><span>Asterisk, FastAGI, SIP / PJSIP, IVR, call routing, CDR, call recording</span></div>
+    <div class="skill"><b>DevOps &amp; Tools</b><span>Linux, Nginx, Gunicorn, Let's Encrypt SSL, Git, GitHub, Postman, Swagger/OpenAPI, Agile/Scrum</span></div>
   </section>
 
   <section>
@@ -135,10 +137,10 @@
       </div>
       <div class="org">Rirabh Consulting Services LLP <span class="loc">· Noida, India · Rehired in an expanded full stack role</span></div>
       <ul>
-        <li>Own features end-to-end, from <b>PostgreSQL schema</b> and <b>Django / DRF / FastAPI</b> services to <b>React</b> interfaces deployed on AWS.</li>
-        <li>Define API contracts with frontend developers up front and secure them with <b>JWT</b>, so UI and backend work proceed in parallel.</li>
-        <li>Convert client requirements into technical designs and sprint tasks; estimate, plan and deliver work in <b>Agile</b> sprints.</li>
-        <li>Lead code reviews and introduce <b>structured logging</b> and modular service layers, making the codebase easier to debug and extend.</li>
+        <li>Built the <b>Ringopus call flow engine</b>: a Python <b>FastAGI</b> service that runs cloud PBX call flows on live <b>Asterisk</b> calls.</li>
+        <li>Implemented <b>20+ call flow nodes</b> (IVR, digit input, business hours, condition routing, ring groups, transfer, voicemail, conference) and per-call execution logs.</li>
+        <li>Develop <b>CA CRM</b>, a practice-management platform <b>live for accounting firms in India and the UAE</b>, across the <b>Django REST</b> backend and <b>React</b> frontend.</li>
+        <li>Deploy and support production on Linux (Nginx, Gunicorn, SSL), agree API contracts and review code.</li>
       </ul>
     </div>
 
@@ -149,12 +151,11 @@
       </div>
       <div class="org">IOanyT Innovations Pvt. Ltd. <span class="loc">· Noida, India · Real-time fintech and trading systems</span></div>
       <ul>
-        <li>Designed and built serverless Python APIs on <b>AWS Lambda and API Gateway</b> powering real-time market data for iYUREK across <b>5 regions</b>.</li>
+        <li>Built serverless Python APIs on <b>AWS Lambda and API Gateway</b> for real-time iYUREK market data across <b>5 regions</b>.</li>
         <li>Implemented a <b>Redis cache-first</b> layer with automatic fallback between <b>Twelve Data and FMP</b>, keeping prices available during provider outages and reducing calls to paid APIs.</li>
-        <li>Decoupled slow and scheduled work into <b>SQS and EventBridge</b> background jobs, keeping user-facing endpoints fast and responsive.</li>
+        <li>Moved slow and scheduled work into <b>SQS and EventBridge</b> background jobs, keeping user-facing APIs fast.</li>
         <li>Built a <b>FastAPI webhook service</b> that validates strategy signals with <b>Pydantic</b> and executes trades on <b>MetaTrader 5 and OANDA</b>, with email alerts on every success and failure.</li>
-        <li>Shipped watchlist and price-alert APIs on <b>MongoDB</b> that notify users by email when a stock crosses their target.</li>
-        <li>Replaced ad-hoc print statements with <b>structured CloudWatch logging</b> across services, cutting the time needed to trace production issues.</li>
+        <li>Replaced print statements with <b>structured CloudWatch logging</b>, making production issues faster to trace.</li>
       </ul>
     </div>
 
@@ -168,8 +169,7 @@
         <li>Built and maintained REST APIs with <b>Django REST Framework and Flask</b> for client products, including Anrari (travel) and Nayeedisha (edtech).</li>
         <li>Designed relational schemas on <b>PostgreSQL and MySQL</b> and tuned <b>Django ORM / SQLAlchemy</b> queries with targeted indexes to speed up search.</li>
         <li>Integrated the <b>Travel Boutique</b> supplier API for live flight and hotel search and booking, with fallbacks so booking flows degraded gracefully on supplier failure.</li>
-        <li>Implemented <b>JWT authentication and role-based access control</b> for 3 user roles (students, counselors, admins) on Nayeedisha.</li>
-        <li>Standardized validation and responses with DRF serializers and Marshmallow; documented APIs and maintained Postman collections for QA and frontend teams.</li>
+        <li>Implemented <b>JWT authentication and role-based access control</b> for 3 user roles on Nayeedisha.</li>
       </ul>
     </div>
 
@@ -190,12 +190,37 @@
 
     <div class="proj">
       <div class="row">
+        <span class="role">Ringopus – Visual Call Flow Engine (Cloud PBX)</span>
+        <span class="dates">Rirabh Consulting · Aug 2026 – Present</span>
+      </div>
+      <ul>
+        <li>Engine loads the published flow, runs nodes through a registry, follows each outcome to the next node, caps steps to stop infinite loops and handles hangups cleanly.</li>
+        <li>Ring groups (ring all / sequential / random, skip busy) built as a reusable module that works as a flow node or a direct number destination.</li>
+        <li>Every node step logged with outcome, duration and summary alongside CDR data; call recording with MP3 conversion and recording URLs.</li>
+      </ul>
+      <div class="tech"><b>Tech:</b> Python, Asterisk (FastAGI), PJSIP / SIP, PostgreSQL, Django REST</div>
+    </div>
+
+    <div class="proj">
+      <div class="row">
+        <span class="role">CA CRM – Practice Management for Accounting Firms</span>
+        <span class="dates">Rirabh Consulting · In production</span>
+      </div>
+      <ul>
+        <li>Three roles (CA/admin, Account Manager, Client) with scoped data access; JWT auth with token blacklisting and rate-limited login.</li>
+        <li>Document management (categories, financial years, bulk upload, PDF preview), task workflow with fee approval and recurring tasks, and messaging.</li>
+        <li>Analytics dashboard, global Ctrl+K search and audit log; replaced per-category count requests with one grouped query.</li>
+      </ul>
+      <div class="tech"><b>Tech:</b> Python, Django 5, DRF, SimpleJWT, PostgreSQL, React, Nginx, Gunicorn</div>
+    </div>
+
+    <div class="proj">
+      <div class="row">
         <span class="role">iYUREK – Real-time Market Intelligence Platform</span>
         <span class="link"><a href="https://app.iyurek.com">app.iyurek.com</a></span>
       </div>
       <ul>
-        <li>Serverless APIs serving live index prices, change and % change for US, Asia, Europe, Crypto and Commodities markets.</li>
-        <li>Redis cache-first reads with provider fallback, user watchlists and email price alerts, monitored through CloudWatch.</li>
+        <li>Serverless APIs serving live index prices for 5 market regions, with Redis cache-first reads, provider fallback and email price alerts.</li>
       </ul>
       <div class="tech"><b>Tech:</b> Python, AWS Lambda, API Gateway, SQS, EventBridge, Redis, MongoDB, CloudWatch</div>
     </div>
@@ -206,8 +231,7 @@
         <span class="dates">IOanyT Innovations</span>
       </div>
       <ul>
-        <li>Webhook backend that receives buy/sell signals from strategy platforms and places orders on MetaTrader 5 and OANDA in real time.</li>
-        <li>Pydantic-validated payloads, detailed logging and email notifications with execution status and failure details.</li>
+        <li>Webhook backend that validates strategy signals with Pydantic and places orders on MetaTrader 5 and OANDA in real time, with email alerts.</li>
       </ul>
       <div class="tech"><b>Tech:</b> Python, FastAPI, Pydantic, MetaTrader 5 SDK, OANDA SDK, httpx</div>
     </div>
@@ -218,8 +242,7 @@
         <span class="dates">Rirabh Consulting</span>
       </div>
       <ul>
-        <li>Booking backend with live availability and pricing from the Travel Boutique API, booking history and profile management.</li>
-        <li>JWT-secured Flask APIs with SQLAlchemy models, Marshmallow validation and fallback handling for supplier failures.</li>
+        <li>JWT-secured Flask booking backend with live availability and pricing from the Travel Boutique API and fallback handling for supplier failures.</li>
       </ul>
       <div class="tech"><b>Tech:</b> Python, Flask, SQLAlchemy, Marshmallow, PostgreSQL, JWT</div>
     </div>
@@ -230,21 +253,9 @@
         <span class="link"><a href="https://nayeedisha.in">nayeedisha.in</a></span>
       </div>
       <ul>
-        <li>Backend connecting students, counselors and admins, with role-based access and documented REST APIs.</li>
-        <li>Course search, filtering and inquiry workflows backed by indexed PostgreSQL queries.</li>
+        <li>Django REST backend for students, counselors and admins with role-based access, course search and indexed PostgreSQL queries.</li>
       </ul>
       <div class="tech"><b>Tech:</b> Python, Django, Django REST Framework, PostgreSQL, JWT</div>
-    </div>
-
-    <div class="proj">
-      <div class="row">
-        <span class="role">Personal Portfolio Website</span>
-        <span class="link"><a href="https://nitish-portfolio-lime.vercel.app">nitish-portfolio-lime.vercel.app</a></span>
-      </div>
-      <ul>
-        <li>Responsive React + TypeScript site with 7 themes, animations, a working contact form and an HTML-to-PDF resume build.</li>
-      </ul>
-      <div class="tech"><b>Tech:</b> React, TypeScript, Vite, Framer Motion, Node.js, Vercel</div>
     </div>
   </section>
 

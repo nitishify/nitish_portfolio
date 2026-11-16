@@ -14,7 +14,9 @@ const LINKS = [
 ];
 const HELLOS = ['Say Namaste 🙏', 'Say Hello 👋', 'Say Hola 💃', 'Say Bonjour 🥐', 'Say Konnichiwa 🌸', 'Say Ciao 🍕'];
 
-export function Navbar({ theme, onSetTheme }: { theme: Theme; onSetTheme: (t: Theme) => void }) {
+export function Navbar({ theme, onSetTheme, home = true }: { theme: Theme; onSetTheme: (t: Theme) => void; home?: boolean }) {
+  /** On a project page, section links point back to the home page. */
+  const base = home ? '' : '/';
   const [picker, setPicker] = useState(false);
   const pickerRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -62,20 +64,20 @@ export function Navbar({ theme, onSetTheme }: { theme: Theme; onSetTheme: (t: Th
   return (
     <header className={`nav ${scrolled ? 'scrolled' : ''} ${open ? 'open' : ''}`}>
       <div className="container nav-in">
-        <a href="#hero" className="logo" onClick={() => setOpen(false)}>
+        <a href={`${base}#hero`} className="logo" onClick={() => setOpen(false)}>
           <span>{profile.brand}</span>
         </a>
 
         <nav className="nav-links" aria-label="Primary">
           {LINKS.map(l => (
-            <a key={l.id} href={`#${l.id}`} className={active === l.id ? 'active' : ''}>
+            <a key={l.id} href={`${base}#${l.id}`} className={active === l.id ? 'active' : ''}>
               {active === l.id && <motion.span layoutId="nav-pill" className="nav-pill" transition={{ type: 'spring', stiffness: 380, damping: 30 }} />}
               <span>{l.label}</span>
             </a>
           ))}
         </nav>
 
-        <a href="#contact" className="hello-btn">
+        <a href={`${base}#contact`} className="hello-btn">
           <AnimatePresence mode="wait">
             <motion.span key={hello} initial={{ y: 14, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: -14, opacity: 0 }} transition={{ duration: 0.25 }}>
               {HELLOS[hello]}
@@ -145,7 +147,7 @@ export function Navbar({ theme, onSetTheme }: { theme: Theme; onSetTheme: (t: Th
             {LINKS.map((l, i) => (
               <motion.a
                 key={l.id}
-                href={`#${l.id}`}
+                href={`${base}#${l.id}`}
                 onClick={() => setOpen(false)}
                 initial={{ opacity: 0, x: 40 }}
                 animate={{ opacity: 1, x: 0 }}
