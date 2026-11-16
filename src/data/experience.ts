@@ -41,7 +41,7 @@ export const experience: Job[] = [
     company: 'IOanyT Innovations Pvt. Ltd.',
     short: 'IO',
     location: 'Noida',
-    period: 'Mar 2025 — Mar 2026',
+    period: 'Feb 2025 — Mar 2026',
     points: [
       'Developed scalable Python APIs on AWS Lambda and API Gateway powering real-time trading platforms.',
       'Designed event-driven workflows with AWS SQS and EventBridge for reliable, decoupled processing.',
