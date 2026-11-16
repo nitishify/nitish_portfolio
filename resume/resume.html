@@ -137,8 +137,7 @@
       </div>
       <div class="org">Rirabh Consulting Services LLP <span class="loc">· Noida, India · Rehired in an expanded full stack role</span></div>
       <ul>
-        <li>Built the <b>Ringopus call flow engine</b>: a Python <b>FastAGI</b> service that runs cloud PBX call flows on live <b>Asterisk</b> calls.</li>
-        <li>Implemented <b>20+ call flow nodes</b> (IVR, digit input, business hours, condition routing, ring groups, transfer, voicemail, conference) and per-call execution logs.</li>
+        <li>Built the <b>Ringopus call flow engine</b>: a Python <b>FastAGI</b> service that runs cloud PBX call flows (20+ node types) on live <b>Asterisk</b> calls.</li>
         <li>Develop <b>CA CRM</b>, a practice-management platform <b>live for accounting firms in India and the UAE</b>, across the <b>Django REST</b> backend and <b>React</b> frontend.</li>
         <li>Deploy and support production on Linux (Nginx, Gunicorn, SSL), agree API contracts and review code.</li>
       </ul>
@@ -152,10 +151,9 @@
       <div class="org">IOanyT Innovations Pvt. Ltd. <span class="loc">· Noida, India · Real-time fintech and trading systems</span></div>
       <ul>
         <li>Built serverless Python APIs on <b>AWS Lambda and API Gateway</b> for real-time iYUREK market data across <b>5 regions</b>.</li>
-        <li>Implemented a <b>Redis cache-first</b> layer with automatic fallback between <b>Twelve Data and FMP</b>, keeping prices available during provider outages and reducing calls to paid APIs.</li>
+        <li>Implemented a <b>Redis cache-first</b> layer with automatic provider fallback, keeping prices available during outages and reducing calls to paid APIs.</li>
         <li>Moved slow and scheduled work into <b>SQS and EventBridge</b> background jobs, keeping user-facing APIs fast.</li>
-        <li>Built a <b>FastAPI webhook service</b> that validates strategy signals with <b>Pydantic</b> and executes trades on <b>MetaTrader 5 and OANDA</b>, with email alerts on every success and failure.</li>
-        <li>Replaced print statements with <b>structured CloudWatch logging</b>, making production issues faster to trace.</li>
+        <li>Built a <b>FastAPI</b> trading webhook service for <b>MetaTrader 5 and OANDA</b> and added <b>structured CloudWatch logging</b> across services.</li>
       </ul>
     </div>
 
@@ -168,8 +166,7 @@
       <ul>
         <li>Built and maintained REST APIs with <b>Django REST Framework and Flask</b> for client products, including Anrari (travel) and Nayeedisha (edtech).</li>
         <li>Designed relational schemas on <b>PostgreSQL and MySQL</b> and tuned <b>Django ORM / SQLAlchemy</b> queries with targeted indexes to speed up search.</li>
-        <li>Integrated the <b>Travel Boutique</b> supplier API for live flight and hotel search and booking, with fallbacks so booking flows degraded gracefully on supplier failure.</li>
-        <li>Implemented <b>JWT authentication and role-based access control</b> for 3 user roles on Nayeedisha.</li>
+        <li>Implemented <b>JWT authentication and role-based access control</b>, integrated third-party supplier APIs and documented APIs for frontend teams.</li>
       </ul>
     </div>
 
@@ -194,7 +191,7 @@
         <span class="dates">Rirabh Consulting · Aug 2026 – Present</span>
       </div>
       <ul>
-        <li>Engine loads the published flow, runs nodes through a registry, follows each outcome to the next node, caps steps to stop infinite loops and handles hangups cleanly.</li>
+        <li>20+ call flow nodes (IVR, digit input, business hours, condition routing, ring groups, transfer, voicemail, conference) run through a node registry, with a step cap against infinite loops and clean hangup handling.</li>
         <li>Ring groups (ring all / sequential / random, skip busy) built as a reusable module that works as a flow node or a direct number destination.</li>
         <li>Every node step logged with outcome, duration and summary alongside CDR data; call recording with MP3 conversion and recording URLs.</li>
       </ul>
@@ -204,7 +201,7 @@
     <div class="proj">
       <div class="row">
         <span class="role">CA CRM – Practice Management for Accounting Firms</span>
-        <span class="dates">Rirabh Consulting · In production</span>
+        <span class="dates">Rirabh Consulting · Mar 2026 – Jul 2026</span>
       </div>
       <ul>
         <li>Three roles (CA/admin, Account Manager, Client) with scoped data access; JWT auth with token blacklisting and rate-limited login.</li>
@@ -220,7 +217,9 @@
         <span class="link"><a href="https://app.iyurek.com">app.iyurek.com</a></span>
       </div>
       <ul>
-        <li>Serverless APIs serving live index prices for 5 market regions, with Redis cache-first reads, provider fallback and email price alerts.</li>
+        <li>Lambda APIs serving live index price, change and % change for US, Asia, Europe, Crypto and Commodities markets.</li>
+        <li>Redis cache-first reads with automatic fallback between Twelve Data and FMP, so prices stay available during provider outages.</li>
+        <li>Watchlists and email price alerts on MongoDB; structured CloudWatch logging for production monitoring.</li>
       </ul>
       <div class="tech"><b>Tech:</b> Python, AWS Lambda, API Gateway, SQS, EventBridge, Redis, MongoDB, CloudWatch</div>
     </div>
@@ -231,7 +230,9 @@
         <span class="dates">IOanyT Innovations</span>
       </div>
       <ul>
-        <li>Webhook backend that validates strategy signals with Pydantic and places orders on MetaTrader 5 and OANDA in real time, with email alerts.</li>
+        <li>FastAPI webhook endpoints that receive buy/sell signals from external strategy platforms in real time.</li>
+        <li>Every payload validated with Pydantic before an order is placed on MetaTrader 5 or OANDA broker accounts.</li>
+        <li>Email alerts with execution status and failure details, and detailed logging across demo and live accounts.</li>
       </ul>
       <div class="tech"><b>Tech:</b> Python, FastAPI, Pydantic, MetaTrader 5 SDK, OANDA SDK, httpx</div>
     </div>
@@ -242,7 +243,9 @@
         <span class="dates">Rirabh Consulting</span>
       </div>
       <ul>
-        <li>JWT-secured Flask booking backend with live availability and pricing from the Travel Boutique API and fallback handling for supplier failures.</li>
+        <li>Flask REST APIs for accounts, search, bookings and availability, with a SQLAlchemy schema and Marshmallow validation.</li>
+        <li>Live flight and hotel availability, pricing and booking through the Travel Boutique supplier API.</li>
+        <li>JWT authentication, booking history and profiles, with fallback handling when the supplier API fails.</li>
       </ul>
       <div class="tech"><b>Tech:</b> Python, Flask, SQLAlchemy, Marshmallow, PostgreSQL, JWT</div>
     </div>
@@ -253,7 +256,9 @@
         <span class="link"><a href="https://nayeedisha.in">nayeedisha.in</a></span>
       </div>
       <ul>
-        <li>Django REST backend for students, counselors and admins with role-based access, course search and indexed PostgreSQL queries.</li>
+        <li>Django REST backend connecting students, counselors and admins, with role-based access for all 3 roles.</li>
+        <li>Course search and filtering backed by indexed PostgreSQL queries for fast results.</li>
+        <li>Inquiry submission, profile management and documented REST APIs for the frontend team.</li>
       </ul>
       <div class="tech"><b>Tech:</b> Python, Django, Django REST Framework, PostgreSQL, JWT</div>
     </div>
