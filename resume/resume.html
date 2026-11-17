@@ -151,7 +151,7 @@
       <div class="org">IOanyT Innovations Pvt. Ltd. <span class="loc">· Noida, India · Real-time fintech and trading systems</span></div>
       <ul>
         <li>Built serverless Python APIs on <b>AWS Lambda and API Gateway</b> for real-time iYUREK market data across <b>5 regions</b>.</li>
-        <li>Implemented a <b>Redis cache-first</b> layer with automatic provider fallback, keeping prices available during outages and reducing calls to paid APIs.</li>
+        <li>Streamed live prices over a <b>WebSocket into Redis</b> for millisecond API reads, with automatic <b>REST failover</b> to keep prices available during outages.</li>
         <li>Moved slow and scheduled work into <b>SQS and EventBridge</b> background jobs, keeping user-facing APIs fast.</li>
         <li>Built a <b>FastAPI</b> trading webhook service for <b>MetaTrader 5 and OANDA</b> and added <b>structured CloudWatch logging</b> across services.</li>
       </ul>
@@ -218,7 +218,7 @@
       </div>
       <ul>
         <li>Lambda APIs serving live index price, change and % change for US, Asia, Europe, Crypto and Commodities markets.</li>
-        <li>Redis cache-first reads with automatic fallback between Twelve Data and FMP, so prices stay available during provider outages.</li>
+        <li>WebSocket feed writes every price tick to Redis; APIs read from Redis and fail over to Twelve Data, then FMP REST APIs when data is stale.</li>
         <li>Watchlists and email price alerts on MongoDB; structured CloudWatch logging for production monitoring.</li>
       </ul>
       <div class="tech"><b>Tech:</b> Python, AWS Lambda, API Gateway, SQS, EventBridge, Redis, MongoDB, CloudWatch</div>

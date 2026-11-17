@@ -45,7 +45,7 @@ export const experience: Job[] = [
     points: [
       'Developed scalable Python APIs on AWS Lambda and API Gateway powering real-time trading platforms.',
       'Designed event-driven workflows with AWS SQS and EventBridge for reliable, decoupled processing.',
-      'Delivered real-time market data from Twelve Data and FMP using a Redis cache-first strategy.',
+      'Delivered live market data via a WebSocket stream into Redis, with failover to Twelve Data and FMP REST APIs.',
       'Improved API performance and reliability; added structured CloudWatch logging and shipped with frontend and DevOps teams.',
     ],
     stack: ['AWS Lambda', 'API Gateway', 'SQS', 'EventBridge', 'Redis', 'MongoDB'],
