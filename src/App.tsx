@@ -1,5 +1,6 @@
 import { AnimatePresence, MotionConfig } from 'framer-motion';
 import { useCallback, useState } from 'react';
+import { ChatWidget } from './components/chat/ChatWidget';
 import { Hero } from './components/hero/Hero';
 import { BackToTop } from './components/layout/BackToTop';
 import { CursorGlow } from './components/layout/CursorGlow';
@@ -55,6 +56,7 @@ export default function App() {
       </main>
       <Footer />
       <BackToTop />
+      <ChatWidget />
     </MotionConfig>
   );
 }

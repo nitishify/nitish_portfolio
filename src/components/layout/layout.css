@@ -141,7 +141,7 @@
 .to-top {
   position: fixed;
   right: 24px;
-  bottom: 24px;
+  bottom: 88px; /* sits above the chat launcher */
   z-index: 90;
   width: 56px;
   height: 56px;
@@ -165,7 +165,7 @@
   .theme-toggle { margin-left: auto; }
 }
 @media (max-width: 640px) {
-  .to-top { right: 16px; bottom: 16px; width: 50px; height: 50px; }
+  .to-top { right: 16px; bottom: 76px; width: 50px; height: 50px; }
 }
 
 /* ---------- Theme picker ---------- */

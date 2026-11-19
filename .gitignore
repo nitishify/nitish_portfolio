@@ -6,6 +6,7 @@ dist
 .claude/
 .env
 .env.*
+!.env.example
 
 # Personal files (interview prep, LinkedIn assets)
 prep/
