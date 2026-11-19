@@ -12,7 +12,7 @@
  */
 import Anthropic from '@anthropic-ai/sdk';
 import { GoogleGenAI, ThinkingLevel } from '@google/genai';
-import { buildSystemPrompt } from './_lib/knowledge';
+import { buildSystemPrompt } from './_lib/knowledge.js';
 
 // Free-tier models, tried in order: a busy (503) or missing model falls through to the next one.
 // Flash-Lite first: it's fast, less often overloaded, and plenty for questions about a profile.

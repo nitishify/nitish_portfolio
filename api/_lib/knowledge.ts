@@ -4,9 +4,9 @@
  *
  * Only public, professional information goes in here. No phone number, salary or notice period.
  */
-import { experience } from '../../src/data/experience';
-import { profile, education } from '../../src/data/profile';
-import { projects } from '../../src/data/projects';
+import { experience } from '../../src/data/experience.js';
+import { profile, education } from '../../src/data/profile.js';
+import { projects } from '../../src/data/projects.js';
 
 const SKILLS = `
 - Languages: Python (primary), SQL, JavaScript, TypeScript
